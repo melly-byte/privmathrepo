@@ -33,7 +33,7 @@ _Sample Addition Response_
 
 
 ### Division Endpoint
-This endpoint divides two numbers using integer division and returns the quotient. 
+This endpoint divides two numbers using integer division and returns the quotient and it's remainder. 
 
 - Location: `/divide`
 - Status Codes:
@@ -53,6 +53,7 @@ _Sample Division Response_
 ```
 {
   "quotient": 2
+  "remainder": 2
 }
 ```
 
@@ -148,6 +149,31 @@ _Sample Multiplication Response_
 ```
 {
   "product": 12
+}
+```
+
+
+### Subtraction Endpoint
+This endpoint subtracts one number from another and returns the difference
+
+- Location `/subtract`
+- Status Codes:
+  - `200`: The difference was computed successfully.
+  - `400`: One or both of `minuend` or `subtrahend` was null, or the difference resulted in an integer
+  overflow, or the request was otherwise malformed.
+
+_Sample Subtraction Request_
+```
+{
+  "minuend": 6,
+  "subtrahend": 2
+}
+```
+
+_Sample Subtraction Response_
+```
+{
+  "sum": 4
 }
 ```
 
