@@ -61,11 +61,10 @@ public class MathController {
   @RequestMapping(path = "/intersect", method = RequestMethod.POST)
   public IntersectResponse intersect(@RequestBody @Valid IntersectRequest request) {
     List<Integer> intersection = new ArrayList<>(request.getLeft());
-    for (Integer i : request.getLeft()) {
-      if (!request.getRight().contains(i)) {
-        intersection.remove(i);
-      }
-    }
+    HashSet<Integer> right = new HashSet<>(request.getRight()); // 
+
+    intersection.removeIf(i -> !right.contains(i));
+
     LOG.info("INTERSECT({}, {}) = {}", request.getLeft(), request.getRight(), intersection);
     return new IntersectResponse(intersection);
   }

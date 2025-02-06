@@ -1,15 +1,15 @@
 package xcal.cs.math;
 
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashSet;
+
 import org.springframework.web.client.HttpStatusCodeException;
 import org.springframework.web.client.RestTemplate;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashSet;
 
 import xcal.cs.math.model.IntersectRequest;
 import xcal.cs.math.model.IntersectResponse;
@@ -24,6 +24,8 @@ public class IntersectTest {
     IntersectRequest request = new IntersectRequest(left, right);
     IntersectResponse response =
         client.postForEntity("/intersect", request, IntersectResponse.class).getBody();
+
+    System.out.println("Intersection: " + response.getIntersection());
 
     Assert.assertEquals(new HashSet<>(response.getIntersection()), new HashSet<>(intersect));
   }
