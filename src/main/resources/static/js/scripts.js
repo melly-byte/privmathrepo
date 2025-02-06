@@ -39,11 +39,18 @@ function intersectHandler(event) {
 
 function maxHandler(event) {
     event.preventDefault();
-    const numbers = document.getElementById('numbers').value.split(',').map(Number);
+    const numbers = document.getElementById('maxnumbers').value.split(',').map(Number);
     apiCaller('/max', { "numbers": numbers }, 'maxResult');
+}
+
+function minHandler(event) {
+    event.preventDefault();
+    const numbers = document.getElementById('minnumbers').value.split(',').map(Number);
+    apiCaller('/min', { "numbers": numbers }, 'minResult');
 }
 
 document.querySelector('form[action="/add"]').addEventListener('submit', addHandler);
 document.querySelector('form[action="/divide"]').addEventListener('submit', divideHandler);
 document.querySelector('form[action="/intersect"]').addEventListener('submit', intersectHandler);
 document.querySelector('form[action="/max"]').addEventListener('submit', maxHandler);
+document.querySelector('form[action="/min"]').addEventListener('submit', minHandler);

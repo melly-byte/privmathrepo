@@ -37,12 +37,20 @@
 
     <h2>Max</h2>
     <form action="/max" method="post">
-        <label for="numbers">Set (comma-separated)</label>
-        <input type="text" id="numbers" name="numbers" />
+        <label for="maxnumbers">Set (comma-separated)</label>
+        <input type="text" id="maxnumbers" name="maxnumbers" />
         <input type="submit" value="Max" />
     </form>
     <div id="maxResult"></div>
-    
+
+    <h2>Min</h2>
+    <form action="/min" method="post">
+        <label for="minnumbers">Set (comma-separated)</label>
+        <input type="text" id="minnumbers" name="minnumbers" />
+        <input type="submit" value="Min" />
+    </form>
+    <div id="minResult"></div>
+
     <script src="/js/scripts.js"></script>
 </body>
 </html>
