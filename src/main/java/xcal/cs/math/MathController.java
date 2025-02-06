@@ -26,6 +26,8 @@ import xcal.cs.math.model.MinRequest;
 import xcal.cs.math.model.MinResponse;
 import xcal.cs.math.model.MultiplicationRequest;
 import xcal.cs.math.model.MultiplicationResponse;
+import xcal.cs.math.model.SubtractionRequest;
+import xcal.cs.math.model.SubtractionResponse;
 import xcal.cs.math.model.UnionRequest;
 import xcal.cs.math.model.UnionResponse;
 
@@ -39,6 +41,13 @@ public class MathController {
     int sum = ArithmeticUtils.addAndCheck(request.getAugend(), request.getAddend());
     LOG.info("{} + {} = {}", request.getAugend(), request.getAddend(), sum);
     return new AdditionResponse(sum);
+  }
+
+  @RequestMapping(path="/subtract", method = RequestMethod.POST)
+  public SubtractionResponse subtract(@RequestBody @Valid SubtractionRequest request) {
+    int difference = ArithmeticUtils.subAndCheck(request.getMinuend(), request.getSubtrahend());
+    LOG.info("{} - {} = {}", request.getMinuend(), request.getSubtrahend(), difference);
+    return new SubtractionResponse(difference);
   }
 
   @RequestMapping(path = "/divide", method = RequestMethod.POST)
