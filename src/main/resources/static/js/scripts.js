@@ -49,8 +49,17 @@ function minHandler(event) {
     apiCaller('/min', { "numbers": numbers }, 'minResult');
 }
 
+function multiplyHandler(event) {
+    event.preventDefault();
+    const multiplicand = document.getElementById('multiplicand').value;
+    const multiplier = document.getElementById('multiplier').value;
+    apiCaller('/multiply', { "multiplicand": multiplicand, "multiplier": multiplier }, 'multiplyResult');
+}
+
+//Event Listeners
 document.querySelector('form[action="/add"]').addEventListener('submit', addHandler);
 document.querySelector('form[action="/divide"]').addEventListener('submit', divideHandler);
 document.querySelector('form[action="/intersect"]').addEventListener('submit', intersectHandler);
 document.querySelector('form[action="/max"]').addEventListener('submit', maxHandler);
 document.querySelector('form[action="/min"]').addEventListener('submit', minHandler);
+document.querySelector('form[action="/multiply"]').addEventListener('submit', multiplyHandler);
