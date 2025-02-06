@@ -13,7 +13,7 @@ public class MultiplicationTest {
   private final RestTemplate client = TestSupport.CLIENT;
 
   @Test(dataProvider = "successCases")
-  public void testSuccess(int multiplicand, int multiplier, int product) {
+  public void testSuccess(long multiplicand, long multiplier, long product) {
     MultiplicationRequest request = new MultiplicationRequest(multiplicand, multiplier);
     MultiplicationResponse response =
         client.postForEntity("/multiply", request, MultiplicationResponse.class).getBody();
@@ -33,7 +33,8 @@ public class MultiplicationTest {
         { 1, 8, 8 },
         { 2, -2, -4 },
         { -2, 5, -10 },
-        { -2, -1, 2 }
+        { -2, -1, 2 },
+        { 1000000, 3000, 3000000000L },
     };
   }
 }

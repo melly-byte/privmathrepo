@@ -1,5 +1,11 @@
 package xcal.cs.math;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+
+import javax.validation.Valid;
+
 import org.apache.commons.math3.util.ArithmeticUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -7,12 +13,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-
-import javax.validation.Valid;
 
 import xcal.cs.math.model.AdditionRequest;
 import xcal.cs.math.model.AdditionResponse;
@@ -86,7 +86,7 @@ public class MathController {
 
   @RequestMapping(path = "/multiply", method = RequestMethod.POST)
   public MultiplicationResponse multiply(@RequestBody @Valid MultiplicationRequest request) {
-    int product = request.getMultiplicand() * request.getMultiplier();
+    long product = request.getMultiplicand() * request.getMultiplier();
     LOG.info("{} * {} = {}", request.getMultiplicand(), request.getMultiplier(), product);
     return new MultiplicationResponse(product);
   }

@@ -1,23 +1,23 @@
 package xcal.cs.math.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 import javax.validation.constraints.NotNull;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class MultiplicationResponse {
 
   @JsonProperty
   @NotNull
-  private Integer product;
+  private Long product;
 
-  public MultiplicationResponse(int product) {
+  public MultiplicationResponse(long product) {
     this.product = product;
   }
 
   @SuppressWarnings("unused") // for Jackson
   private MultiplicationResponse() {}
 
-  public int getProduct() {
+  public long getProduct() {
     return product;
   }
 }

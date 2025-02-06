@@ -1,20 +1,20 @@
 package xcal.cs.math.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 import javax.validation.constraints.NotNull;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class MultiplicationRequest {
 
   @JsonProperty
   @NotNull
-  private Integer multiplicand;
+  private long multiplicand;
 
   @JsonProperty
   @NotNull
-  private Integer multiplier;
+  private long multiplier;
 
-  public MultiplicationRequest(int multiplicand, int multiplier) {
+  public MultiplicationRequest(long multiplicand, long multiplier) {
     this.multiplicand = multiplicand;
     this.multiplier = multiplier;
   }
@@ -22,11 +22,11 @@ public class MultiplicationRequest {
   @SuppressWarnings("unused") // for Jackson
   private MultiplicationRequest() {}
 
-  public int getMultiplicand() {
+  public long getMultiplicand() {
     return multiplicand;
   }
 
-  public int getMultiplier() {
+  public long getMultiplier() {
     return multiplier;
   }
 }
