@@ -53,8 +53,9 @@ public class MathController {
   @RequestMapping(path = "/divide", method = RequestMethod.POST)
   public DivisionResponse divide(@RequestBody @Valid DivisionRequest request) {
     int quotient = request.getDividend() / request.getDivisor();
-    LOG.info("{} / {} = {}", request.getDividend(), request.getDivisor(), quotient);
-    return new DivisionResponse(quotient);
+    int remainder = request.getDividend() % request.getDivisor();
+    LOG.info("{} / {} = {}, REM: {}", request.getDividend(), request.getDivisor(), quotient, remainder);
+    return new DivisionResponse(quotient, remainder);
   }
 
   @RequestMapping(path = "/intersect", method = RequestMethod.POST)

@@ -14,26 +14,27 @@ public class DivisionTest {
   private final RestTemplate client = TestSupport.CLIENT;
 
   @Test(dataProvider = "successCases")
-  public void testSuccess(int dividend, int divisor, int quotient) {
+  public void testSuccess(int dividend, int divisor, int quotient, int remainder) {
     DivisionRequest request = new DivisionRequest(dividend, divisor);
     DivisionResponse response =
         client.postForEntity("/divide", request, DivisionResponse.class).getBody();
 
     Assert.assertEquals(response.getQuotient(), quotient);
+    Assert.assertEquals(response.getRemainder(), remainder);
   }
 
   @DataProvider(name = "successCases")
   private static Object[][] getSuccessCases() {
     return new Object[][] {
-        { 1, 1, 1 },
-        { 4, 2, 2 },
-        { 4, 3, 1 },
-        { 4, 4, 1 },
-        { 9, 4, 2 },
-        { 0, 5, 0 },
-        { -10, 5, -2 },
-        { 10, -4, -2 },
-        { -10, -3, 3 }
+        { 1, 1, 1, 0 },
+        { 4, 2, 2, 0 },
+        { 4, 3, 1, 1 },
+        { 4, 4, 1, 0 },
+        { 9, 4, 2, 1 },
+        { 0, 5, 0, 0 },
+        { -10, 5, -2, 0 },
+        { 10, -4, -2, 2 },
+        { -10, -3, 3, -1 }
     };
   }
 

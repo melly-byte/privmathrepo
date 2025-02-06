@@ -1,8 +1,8 @@
 package xcal.cs.math.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 import javax.validation.constraints.NotNull;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class DivisionResponse {
 
@@ -10,8 +10,13 @@ public class DivisionResponse {
   @NotNull
   private Integer quotient;
 
-  public DivisionResponse(int quotient) {
+  @JsonProperty
+  @NotNull
+  private Integer remainder;
+
+  public DivisionResponse(int quotient, int remainder) {
     this.quotient = quotient;
+    this.remainder = remainder;
   }
 
   @SuppressWarnings("unused") // for Jackson
@@ -19,5 +24,9 @@ public class DivisionResponse {
 
   public int getQuotient() {
     return quotient;
+  }
+
+  public int getRemainder() {
+    return remainder;
   }
 }
