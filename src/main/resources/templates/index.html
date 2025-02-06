@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Math Service</title>
+</head>
+<body>
+    <h1>Math Service</h1>
+    <form action="/add" method="post">
+        <input type="text" id="augend" name="augend" />
+        <input type="text" id="addend" name="addend" />
+        <input type="submit" value="Add" />
+    </form>
+    <div id="addResult"></div>
+
+    <form action="/divide" method="post">
+        <input type="text" id="dividend" name="dividend" />
+        <input type="text" id="divisor" name="divisor" />
+        <input type="submit" value="Divide" />
+    </form>
+    <div id="divideResult"></div>
+    
+    <form action="/intersect" method="post">
+
+        <label for="set1">Set 1 (comma-separated)</label>
+        <input type="text" id="set1" name="set1" />
+
+        <label for="set2">Set 2 (comma-separated)</label>
+        <input type="text" id="set2" name="set2" />
+
+        <input type="submit" value="Intersect" />
+    </form>
+    <div id="intersectResult"></div>
+    <script src="/js/scripts.js"></script>
+</body>
+</html>
