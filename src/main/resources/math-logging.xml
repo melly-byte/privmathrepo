@@ -2,7 +2,7 @@
 <included>
   <logger name="org.hibernate.validator" level="warn" />
   <logger name="org.springframework" level="warn" />
-  <logger name="xcal.cs" level="info" />
+  <logger name="xcal.cs" level="warn" />
 
   <root level="error">
     <appender-ref ref="STDOUT" />
