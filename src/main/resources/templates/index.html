@@ -5,6 +5,8 @@
 </head>
 <body>
     <h1>Math Service</h1>
+
+    <h2>Addition</h2>
     <form action="/add" method="post">
         <input type="text" id="augend" name="augend" />
         <input type="text" id="addend" name="addend" />
@@ -12,13 +14,15 @@
     </form>
     <div id="addResult"></div>
 
+    <h2>Division</h2>
     <form action="/divide" method="post">
         <input type="text" id="dividend" name="dividend" />
         <input type="text" id="divisor" name="divisor" />
         <input type="submit" value="Divide" />
     </form>
     <div id="divideResult"></div>
-    
+   
+    <h2>Intersection</h2>
     <form action="/intersect" method="post">
 
         <label for="set1">Set 1 (comma-separated)</label>
@@ -30,6 +34,15 @@
         <input type="submit" value="Intersect" />
     </form>
     <div id="intersectResult"></div>
+
+    <h2>Max</h2>
+    <form action="/max" method="post">
+        <label for="numbers">Set (comma-separated)</label>
+        <input type="text" id="numbers" name="numbers" />
+        <input type="submit" value="Max" />
+    </form>
+    <div id="maxResult"></div>
+    
     <script src="/js/scripts.js"></script>
 </body>
 </html>

@@ -37,6 +37,13 @@ function intersectHandler(event) {
     apiCaller('/intersect', data , 'intersectResult');
 }
 
+function maxHandler(event) {
+    event.preventDefault();
+    const numbers = document.getElementById('numbers').value.split(',').map(Number);
+    apiCaller('/max', { "numbers": numbers }, 'maxResult');
+}
+
 document.querySelector('form[action="/add"]').addEventListener('submit', addHandler);
 document.querySelector('form[action="/divide"]').addEventListener('submit', divideHandler);
 document.querySelector('form[action="/intersect"]').addEventListener('submit', intersectHandler);
+document.querySelector('form[action="/max"]').addEventListener('submit', maxHandler);
