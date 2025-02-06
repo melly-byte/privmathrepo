@@ -154,9 +154,9 @@ _Sample Multiplication Response_
 
 
 ### Subtraction Endpoint
-This endpoint subtracts one number from another and returns the difference
+This endpoint subtracts one number from another and returns the difference.
 
-- Location `/subtract`
+- Location: `/subtract`
 - Status Codes:
   - `200`: The difference was computed successfully.
   - `400`: One or both of `minuend` or `subtrahend` was null, or the difference resulted in an integer
