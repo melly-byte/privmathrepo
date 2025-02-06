@@ -56,6 +56,13 @@ function multiplyHandler(event) {
     apiCaller('/multiply', { "multiplicand": multiplicand, "multiplier": multiplier }, 'multiplyResult');
 }
 
+function subtractionHandler(event) {
+    event.preventDefault();
+    const minuend = document.getElementById('minuend').value;
+    const subtrahend = document.getElementById('subtrahend').value;
+    apiCaller('/subtract', { "minuend": minuend, "subtrahend": subtrahend }, 'subtractResult');
+}
+
 //Event Listeners
 document.querySelector('form[action="/add"]').addEventListener('submit', addHandler);
 document.querySelector('form[action="/divide"]').addEventListener('submit', divideHandler);
@@ -63,3 +70,4 @@ document.querySelector('form[action="/intersect"]').addEventListener('submit', i
 document.querySelector('form[action="/max"]').addEventListener('submit', maxHandler);
 document.querySelector('form[action="/min"]').addEventListener('submit', minHandler);
 document.querySelector('form[action="/multiply"]').addEventListener('submit', multiplyHandler);
+document.querySelector('form[action="/subtract"]').addEventListener('submit', subtractionHandler);
