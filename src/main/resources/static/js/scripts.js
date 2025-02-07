@@ -30,10 +30,8 @@ function divideHandler(event) {
 function intersectHandler(event) {
     event.preventDefault();
     const left = document.getElementById('set1').value.split(',').map(Number);
-    console.log(left);
     const right = document.getElementById('set2').value.split(',').map(Number);
     const data = { "left": left, "right": right };
-    console.log(data);
     apiCaller('/intersect', data , 'intersectResult');
 }
 
@@ -63,6 +61,13 @@ function subtractionHandler(event) {
     apiCaller('/subtract', { "minuend": minuend, "subtrahend": subtrahend }, 'subtractResult');
 }
 
+function unionHandler(event) {
+    event.preventDefault();
+    const left = document.getElementById('uset1').value.split(',').map(Number);
+    const right = document.getElementById('uset2').value.split(',').map(Number);
+    apiCaller('/union', { "left": left, "right": right }, 'unionResult');
+}
+
 //Event Listeners
 document.querySelector('form[action="/add"]').addEventListener('submit', addHandler);
 document.querySelector('form[action="/divide"]').addEventListener('submit', divideHandler);
@@ -71,3 +76,4 @@ document.querySelector('form[action="/max"]').addEventListener('submit', maxHand
 document.querySelector('form[action="/min"]').addEventListener('submit', minHandler);
 document.querySelector('form[action="/multiply"]').addEventListener('submit', multiplyHandler);
 document.querySelector('form[action="/subtract"]').addEventListener('submit', subtractionHandler);
+document.querySelector('form[action="/union"]').addEventListener('submit', unionHandler);
